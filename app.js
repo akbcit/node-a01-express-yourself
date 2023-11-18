@@ -14,10 +14,10 @@ const logger = require("morgan");
 app.use(logger("dev"));
 // Ask app to use public dir for static files
 app.use(express.static(path.join(__dirname,"/public")));
-// Other code to follow
-
-
-
+// Import api router
+const apiRouter = require("./routers/apiRouter")
+// Use api router for /api routes
+app.use("/api",apiRouter);
 // Start the server
 app.listen(PORT,()=>{
 console.log(`Listening on PORT: ${PORT}`);
