@@ -12,14 +12,14 @@
     <% if (profile) { %>
         <div>
             
-            <img width="400"src="<%= profile.imagePath %>" alt="<%= profile.name %>">
+            <img src="<%= profile.imagePath %>" alt="<%= profile.name %>">
             <h2><%= profile.name %></h2>
-            <p>ID: <%= profile.id %></p>
+            <!-- <p>ID: <%= profile.id %></p> -->
             <p>Interests: <%= profile.interests.join(', ') %></p>
         </div>
     <% } else { %>
         <p>No profile found.</p>
     <% } %>
-    <a href="/profiles">Back to Profiles</a>
+    <button><a href="/profiles">Back to Profiles</a></button>
 </body>
 </html>
