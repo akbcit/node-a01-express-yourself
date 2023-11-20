@@ -28,6 +28,9 @@ app.use(express.static(path.join(__dirname,"/public")));
 app.set('view engine', 'ejs');
 // Set the views directory
 app.set('views', path.join(__dirname, 'views'));
+// use express-ejs-layout and set full-widths layout
+app.use(expressLayouts);
+app.set('layout','layouts/full-width');
 
 // Import api router
 const apiRouter = require("./routers/apiRouter");
