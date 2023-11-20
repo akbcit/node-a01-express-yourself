@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,800;1,300;1,400;1,800&display=swap');
+/* CSS Reset */
+html {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+/*Typography */
+p, a, li, h1, h2, h3, h4{
+    font-family: 'Barlow', sans-serif;
+}
+
+p{
+    font-weight:300;
+}
+h1, h2, h3, h4{
+    font-weight:800;
+}
+h1{
+    color:#025259;
+}
+h2{
+    color:#025259;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin:0 auto;
+}
+
+ul{
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin:0 auto;
+    padding:0;
+}
+
+li {
+    font-size: 1.4em;
+    line-height: 1.6em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+a{
+    text-decoration: none;
+    color: #007172;
+}
+a:hover{
+    color:#D94F04;
+}
+
+button{
+    background:#D94F04;
+    height: 50px;
+    width:150px;
+    border-radius:5px;
+    border:1px solid #F29325;
+}
+button:hover{
+    background: #F29325;
+}
+button a{
+    color:#fff;
+    font-size: 1.2em;
+}
+button a:hover{
+    color:#fff;
+}
+
+div img{
+    max-width: 400px;
+}

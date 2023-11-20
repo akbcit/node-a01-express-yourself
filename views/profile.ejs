@@ -1,0 +1,25 @@
+<!-- views/profile.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+<body>
+    <h1>User Profile</h1>
+    <% if (profile) { %>
+        <div>
+            
+            <img src="<%= profile.imagePath %>" alt="<%= profile.name %>">
+            <h2><%= profile.name %></h2>
+            <!-- <p>ID: <%= profile.id %></p> -->
+            <p>Interests: <%= profile.interests.join(', ') %></p>
+        </div>
+    <% } else { %>
+        <p>No profile found.</p>
+    <% } %>
+    <button><a href="/profiles">Back to Profiles</a></button>
+</body>
+</html>

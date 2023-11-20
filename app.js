@@ -8,12 +8,14 @@ const expressLayouts = require("express-ejs-layouts");
 const bodyParser = require("body-parser");
 // Import path
 const path = require("path");
+// Import morgan 
+const logger = require("morgan");
+// fs - pam added
+const fs = require('fs');
 // Create a server
 const app = express();
 // Create a PORT
 const PORT = process.env.PORT || 3003;
-// Import morgan 
-const logger = require("morgan");
 
 // Use morgan as logger
 app.use(logger("dev"));
@@ -27,18 +29,19 @@ app.set('view engine', 'ejs');
 // Set the views directory
 app.set('views', path.join(__dirname, 'views'));
 
-
 // Import api router
 const apiRouter = require("./routers/apiRouter");
-// Import profiles router
-const profilesRouter = require("./routers/indexRouter");
+// use profile router - pam added
+const profilesRouter = require("./routers/profilesRouter");
 // Import index router
 const indexRouter = require("./routers/indexRouter");
 
 // Use api router for /api routes
 app.use("/api",apiRouter);
-// Use profiles router for /profiles routes
+
+// Use profilesRouter for /profiles routes -pam added
 app.use("/profiles", profilesRouter);
+
 // Use index router for /index routes
 app.use("/", indexRouter);
 

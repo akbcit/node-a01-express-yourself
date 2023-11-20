@@ -2,20 +2,20 @@
   {
     "id": "aKumar",
     "name": "Aditya Kumar",
-    "imagePath": "images/aditya-image.jpg",
+    "imagePath": "../images/aditya-image.jpg",
     "interests": ["Code", "Music", "Cricket"]
   },
   {
     "id": "cWard",
-    "name": "",
+    "name": "Carissa Ward",
     "imagePath": "",
     "interests": ["Interest A", "Interest B", "Interest C"]
   },
   {
     "id": "pPragides",
     "name": "Pamela Pragides",
-    "imagePath": "",
-    "interests": ["Interest A", "Interest B", "Interest C"]
+    "imagePath": "../images/pam-bucky.jpg",
+    "interests": ["Animals", "Gardening", "Music"]
   }
 ]
 
