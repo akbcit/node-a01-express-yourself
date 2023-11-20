@@ -11,20 +11,20 @@ const packageReader = require('../packageReader');
 indexRouter.get('/', (req, res) => {
     const contributors = packageReader.getContributors();
     // Display a simple greeting for the home page
-    res.render('index', { title: 'Home', message: 'Welcome to our website!', layout: '../views/layouts/full-width', contributors });
+    res.render('index', { title: 'Home', message: 'Welcome to our website!', contributors });
 });
 
 // About page route
 indexRouter.get('/about', (req, res) => {
     const contributors = packageReader.getContributors();
     // Display a simple greeting for the about page
-    res.render('about', { title: 'About', message: 'About Us: Not Your Average Express Lane!', layout: '../views/layouts/full-width', contributors });
+    res.render('about', { title: 'About', message: 'About Us: Not Your Average Express Lane!', contributors });
 });
 
 // Contact page route (GET)
 indexRouter.get('/contact', (req, res) => {
     const contributors = packageReader.getContributors();
-    res.render('contact', { title: 'Contact', submitted: false, layout: '../views/layouts/full-width', contributors });
+    res.render('contact', { title: 'Contact', submitted: false, contributors });
 });
 
 // Contact page route (POST)
@@ -33,7 +33,7 @@ indexRouter.post('/contact', (req, res) => {
     // Handle form submission
     const formData = req.body;
     // Display a thank you message after form submission
-    res.render('contact', { title: 'Contact', submitted: true, message: `Thank you, ${formData.name}!`, layout: '../views/layouts/full-width', contributors });
+    res.render('contact', { title: 'Contact', submitted: true, message: `Thank you, ${formData.name}!`, contributors });
   });
 
 // Export indexRouter
