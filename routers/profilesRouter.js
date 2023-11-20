@@ -4,11 +4,6 @@ const express = require("express");
 const profilesRouter = express.Router();
 const fs = require('fs');
 
-// profilesRouter.get("/", (req, res) => res.send("Profiles"));
-// profilesRouter.get("/:profileId", (req, res) => {
-
-//     res.send(`Details for profile ${req.params.profileId}`);
-// });
 // Define a route to render the list of profiles
 profilesRouter.get("/", (req, res) => {
     try {
@@ -37,18 +32,5 @@ profilesRouter.get("/", (req, res) => {
       res.status(500).send('Internal Server Error');
     }
   });
-
-// // get profiles.ejs - pam added
-// profilesRouter.get("/profiles", (req, res) => {
-//     try {
-//         // Read data from the profiles JSON file
-//         const profilesData = JSON.parse(fs.readFileSync('./data/profiles.json', 'utf8'));
-//         res.render("profiles", { profiles: profilesData });
-//     } catch (error) {
-//         console.error('Error reading or parsing profiles.json:', error);
-//         res.status(500).send('Internal Server Error');
-//     }
-// });
-
 
 module.exports = profilesRouter;
