@@ -14,9 +14,10 @@ profilesRouter.get("/", (req, res) => {
       const profilesData = JSON.parse(fs.readFileSync("./data/profiles.json", "utf8"));
 
       // Use profilesData directly as allProfiles
-      // const allProfilesData = profilesData;
+      const allProfilesData = profilesData;
+      console.log('All profiles:', allProfilesData);
 
-      res.render("profiles", { title: "profiles", profiles: profilesData, contributors: contributors });
+      res.render("profiles", { title: "profiles", profiles: profilesData, allProfiles: allProfilesData, contributors: contributors });
   } catch (error) {
       console.error('Error reading or parsing profiles.json:', error);
       res.status(500).send('Internal Server Error');
@@ -30,22 +31,12 @@ profilesRouter.get("/", (req, res) => {
       const profileId = req.params.id;
       // Read data from the profiles JSON file
       const profilesData = JSON.parse(fs.readFileSync("./data/profiles.json", "utf8"));
-      // find all profiles to filter through on the profile page
+
       const allProfilesData = profilesData;
       // Find the profile with the specified ID
       const profile = profilesData.find(p => p.id === profileId);
-      // Create an array for other profiles
-      const otherProfilesArr = [];
-      profilesData.forEach(otherProfile => {
-        const profileObject = {};
-        if(otherProfile.id!==profileId){
-          profileObject.name = otherProfile.name;
-          profileObject.url = `/profiles/${otherProfile.id}`;
-          otherProfilesArr.push(profileObject);
-        }
-      });
       // Render the individual profile template
-      res.render("profile", { title:`profile${profileId}`,profile: profile, contributors:contributors });
+      res.render("profile", { title:`profile${profileId}`,profile: profile,allProfiles: allProfilesData, contributors:contributors });
     } catch (error) {
       console.error('Error reading or parsing profiles.json:', error);
       res.status(500).send('Internal Server Error');
