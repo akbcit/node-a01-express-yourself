@@ -1,12 +1,12 @@
 <!-- views/profiles.ejs -->
 <body>
-
-    <h2>User Profiles</h2>
+    <h1>User Profiles</h1>
     <ul>
-        <% profiles.forEach(profile => { %>
+        <% profiles.forEach(profile=> { %>
             <li>
-                <a href="./profiles/<%= profile.id %>"><%= profile.name %></a>
+                <a href="./profiles/<%= profile.id %>">
+                    <%= profile.name %>
+                </a>
             </li>
-        <% }); %>
-        </ul>
-</body>
+            <% }); %>
+</main>

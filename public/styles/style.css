@@ -1,39 +1,57 @@
-@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,800;1,300;1,400;1,800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,800;1,300;1,400;1,800&display=swap");
 /* CSS Reset */
 html {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 *,
 *:before,
 *:after {
-    box-sizing: inherit;
+  box-sizing: inherit;
 }
 
 /*Typography */
-p, a, li, h1, h2, h3, h4, label, input, button{
+p, a, li, h1, h2, h3, h4{
     font-family: 'Barlow', sans-serif;
 }
 
-p{
-    font-weight:300;
+p {
+  font-weight: 300;
 }
-h1, h2, h3, h4{
-    font-weight:800;
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 800;
 }
-h1{
-    color:#025259;
+h1 {
+  color: #025259;
 }
-h2{
-    color:#025259;
+h2 {
+  color: #025259;
 }
 
-body{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin:0 auto;
+#header-nav {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+#welcome-message {
+  margin: 20rem;
+}
+
+#about-us {
+  margin: 10rem;
+  width: 900px;
 }
 
 main{
@@ -45,49 +63,58 @@ main{
     max-width:900px;
 }
 
-ul{
-    list-style-type: none;
+main{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     margin:0 auto;
-    padding:0;
+    max-width:900px;
+}
+
+ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 0;
 }
 
 li {
-    font-size: 1.4em;
-    line-height: 1.6em;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
+  font-size: 1.4em;
+  line-height: 1.6em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 }
-a{
-    text-decoration: none;
-    color: #007172;
+a {
+  text-decoration: none;
+  color: #007172;
 }
-a:hover{
-    color:#D94F04;
+a:hover {
+  color: #d94f04;
 }
 
-button{
-    background:#D94F04;
-    height: 50px;
-    width:150px;
-    border-radius:5px;
-    border:1px solid #F29325;
-    color:#fff;
+button {
+  background: #d94f04;
+  height: 50px;
+  width: 150px;
+  border-radius: 5px;
+  border: 1px solid #f29325;
+  color: beige;
 }
-button:hover{
-    background: #F29325;
+button:hover {
+  background: #f29325;
 }
-button a{
-    color:#fff;
-    font-size: 1.2em;
+button a {
+  color: #fff;
+  font-size: 1.2em;
 }
-button a:hover{
-    color:#fff;
+button a:hover {
+  color: #fff;
 }
 form{
         display: flex;
@@ -107,34 +134,64 @@ width:100%;
 div img{
     max-width: 400px;
 }
-header{
-    display:flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    width:100%;
-    background: #F4E2DE;
-    height:60px;
-}
-nav{
-    display:flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    width:900px;
 
+#profile-list {
+  margin-top: 15rem;
 }
-nav ul {
+
+#developer-profile {
+  margin-top: 10rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#contact-us{
+    margin-top: 12rem;
+    width:20rem;
+}
+
+#contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.input-div {
+  display: flex;
+  flex-direction: column;
+}
+
+#comments-input,
+#contact-email,
+#contact-name {
+  border-radius: 5px;
+}
+
+#form-submit {
+  align-self: center;
+  height: 40px;
+  width: 70px;
+}
+
+#side-bar {
+  position: absolute;
+  top: 35%;
+  right: 5%;
+}
+
+#error-page{
     display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    width: 100%;
+    flex-direction: column;
+    margin: 15rem;
 }
 
-nav ul li{
-    display:flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+#error-icon{
+    width:5rem;
+}
+
+#site-footer {
+  position: absolute;
+  top: 93%;
 }
