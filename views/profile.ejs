@@ -1,17 +1,32 @@
-<!-- views/profiles.ejs -->
-
-<body>
-    <h1>User Profile</h1>
+<!-- views/profile.ejs -->
+<main id="developer-profile">
+    <h1>Developer Profile</h1>
     <% if (profile) { %>
-        <div>
-            
-            <img src="<%= profile.imagePath %>" alt="<%= profile.name %>">
-            <h2><%= profile.name %></h2>
-            <!-- <p>ID: <%= profile.id %></p> -->
-            <p>Interests: <%= profile.interests.join(', ') %></p>
-        </div>
+    <div>
+      <img src="<%= profile.imagePath %>" alt="<%= profile.name %>" />
+      <h2><%= profile.name %></h2>
+      <!-- <p>ID: <%= profile.id %></p> -->
+      <p>Interests: <%= profile.interests.join(', ') %></p>
+    </div>
     <% } else { %>
-        <p>No profile found.</p>
+    <p>No profile found.</p>
     <% } %>
+
+            <!-- Links to other profiles (not including the current user) -->
+            <% const otherProfiles = allProfiles.filter(otherProfile => otherProfile.id !== profile.id); %>
+            <% if (otherProfiles.length > 0) { %>
+                <h3>Other Profiles:</h3>
+                <ul>
+                    <% otherProfiles.forEach(otherProfile => { %>
+                        <li>
+                            <a href="./<%= otherProfile.id %>"><%= otherProfile.name %></a>
+                        </li>
+                    <% }); %>
+                </ul>
+            <% } else { %>
+                <p>No other profiles found.</p>
+            <% } %>
+    
+            
     <button><a href="/profiles">Back to Profiles</a></button>
 </body>
