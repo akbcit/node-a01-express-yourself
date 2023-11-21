@@ -11,14 +11,8 @@ html {
 }
 
 /*Typography */
-p,
-a,
-li,
-h1,
-h2,
-h3,
-h4 {
-  font-family: "Barlow", sans-serif;
+p, a, li, h1, h2, h3, h4{
+    font-family: 'Barlow', sans-serif;
 }
 
 p {
@@ -58,6 +52,24 @@ body {
 #about-us {
   margin: 10rem;
   width: 900px;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin:0 auto;
+    max-width:900px;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin:0 auto;
+    max-width:900px;
 }
 
 ul {
@@ -104,9 +116,23 @@ button a {
 button a:hover {
   color: #fff;
 }
+form{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        height: 250px;
+}
+input{
+width:100%;
+    height:30px;
 
-div img {
-  max-width: 400px;
+}
+textarea{
+width:100%;
+}
+div img{
+    max-width: 400px;
 }
 
 #profile-list {

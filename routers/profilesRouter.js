@@ -7,23 +7,22 @@ const fs = require('fs');
 const packageReader = require('../packageReader');
 const contributors = packageReader.getContributors();
 
-// profilesRouter.get("/", (req, res) => res.send("Profiles"));
-// profilesRouter.get("/:profileId", (req, res) => {
-
-//     res.send(`Details for profile ${req.params.profileId}`);
-// });
 // Define a route to render the list of profiles
 profilesRouter.get("/", (req, res) => {
-    try {
+  try {
       // Read data from the profiles JSON file
       const profilesData = JSON.parse(fs.readFileSync("./data/profiles.json", "utf8"));
-      // Render the profiles template with the list of profiles
-      res.render("profiles", { title:"profiles",profiles: profilesData,contributors:contributors });
-    } catch (error) {
+
+      // Use profilesData directly as allProfiles
+      // const allProfilesData = profilesData;
+
+      res.render("profiles", { title: "profiles", profiles: profilesData, contributors: contributors });
+  } catch (error) {
       console.error('Error reading or parsing profiles.json:', error);
       res.status(500).send('Internal Server Error');
-    }
-  });
+  }
+});
+
   
   // Define a route to render the individual profile EJS template
   profilesRouter.get("/:id", (req, res) => {
@@ -31,6 +30,8 @@ profilesRouter.get("/", (req, res) => {
       const profileId = req.params.id;
       // Read data from the profiles JSON file
       const profilesData = JSON.parse(fs.readFileSync("./data/profiles.json", "utf8"));
+      // find all profiles to filter through on the profile page
+      const allProfilesData = profilesData;
       // Find the profile with the specified ID
       const profile = profilesData.find(p => p.id === profileId);
       // Create an array for other profiles
@@ -44,24 +45,11 @@ profilesRouter.get("/", (req, res) => {
         }
       });
       // Render the individual profile template
-      res.render("profile", { title:`profile${profileId}`,profile: profile, contributors:contributors,otherProfilesArr:otherProfilesArr,layout:"layouts/full-width-sidebar"});
+      res.render("profile", { title:`profile${profileId}`,profile: profile, contributors:contributors });
     } catch (error) {
       console.error('Error reading or parsing profiles.json:', error);
       res.status(500).send('Internal Server Error');
     }
   });
-
-// // get profiles.ejs - pam added
-// profilesRouter.get("/profiles", (req, res) => {
-//     try {
-//         // Read data from the profiles JSON file
-//         const profilesData = JSON.parse(fs.readFileSync('./data/profiles.json', 'utf8'));
-//         res.render("profiles", { profiles: profilesData });
-//     } catch (error) {
-//         console.error('Error reading or parsing profiles.json:', error);
-//         res.status(500).send('Internal Server Error');
-//     }
-// });
-
 
 module.exports = profilesRouter;
