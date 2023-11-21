@@ -4,19 +4,19 @@
         <p><%= message %></p>
     <% } else { %>
         <form action="/contact" method="post" id="contact-form">
-            <div>
+            <div class = "input-div">
                 <label for = "contact-name">Name:</label>
                 <input type = "text" id="contact-name" name ="name" required>
             </div>
-            <div>
+            <div class = "input-div">
                 <label for = "contact-email">Email:</label>
                 <input type = "Email" id="contact-email" name ="email" required>
             </div>
-            <div>
+            <div class = "input-div">
                 <label for="comments-input">Comments:</label>
                 <textarea id = "comments-input" name ="comments"></textarea>
             </div>
-            <button type="submit">Submit</button>
+            <button type="submit" id="form-submit">Submit</button>
         </form>
     <% } %>
 </main>
