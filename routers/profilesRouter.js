@@ -36,7 +36,7 @@ profilesRouter.get("/", (req, res) => {
       // Find the profile with the specified ID
       const profile = profilesData.find(p => p.id === profileId);
       // Render the individual profile template
-      res.render("profile", { title:`profile${profileId}`,profile: profile,allProfiles: allProfilesData, contributors:contributors });
+      res.render("profile", { title:`profile${profileId}`,profile: profile,allProfiles: allProfilesData, contributors:contributors,layout:"layouts/full-width-sidebar" });
     } catch (error) {
       console.error('Error reading or parsing profiles.json:', error);
       res.status(500).send('Internal Server Error');
