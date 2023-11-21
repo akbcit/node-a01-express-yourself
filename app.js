@@ -1,4 +1,4 @@
-"use strict"
+"use strict";
 
 // Import express
 const express = require("express");
@@ -8,29 +8,31 @@ const expressLayouts = require("express-ejs-layouts");
 const bodyParser = require("body-parser");
 // Import path
 const path = require("path");
-// Import morgan 
+// Import morgan
 const logger = require("morgan");
 // fs - pam added
-const fs = require('fs');
+const fs = require("fs");
 // Create a server
 const app = express();
+// Import package reader and get contributors
+const packageReader = require("./packageReader");
 // Create a PORT
 const PORT = process.env.PORT || 3003;
 
 // Use morgan as logger
 app.use(logger("dev"));
 // Ask app to parse any URL encoded data that is sent with requests
-app.use(bodyParser.urlencoded({ extended: true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 // Ask app to use public dir for static files
-app.use(express.static(path.join(__dirname,"/public")));
+app.use(express.static(path.join(__dirname, "/public")));
 
 // Set the view engine to EJS
-app.set('view engine', 'ejs');
+app.set("view engine", "ejs");
 // Set the views directory
-app.set('views', path.join(__dirname, 'views'));
+app.set("views", path.join(__dirname, "views"));
 // use express-ejs-layout and set full-widths layout
 app.use(expressLayouts);
-app.set('layout','layouts/full-width');
+app.set("layout", "layouts/full-width");
 
 // Import api router
 const apiRouter = require("./routers/apiRouter");
@@ -40,7 +42,7 @@ const profilesRouter = require("./routers/profilesRouter");
 const indexRouter = require("./routers/indexRouter");
 
 // Use api router for /api routes
-app.use("/api",apiRouter);
+app.use("/api", apiRouter);
 
 // Use profilesRouter for /profiles routes -pam added
 app.use("/profiles", profilesRouter);
@@ -49,10 +51,12 @@ app.use("/profiles", profilesRouter);
 app.use("/", indexRouter);
 
 app.use((req, res, next) => {
-    res.status(404).send("Not Found");
+  const contributors = packageReader.getContributors();
+  res.status(404).render("404", { title: "404", contributors: contributors });
+  next();
 });
 
 // Start the server
-app.listen(PORT,()=>{
-console.log(`Listening on PORT: ${PORT}`);
+app.listen(PORT, () => {
+  console.log(`Listening on PORT: ${PORT}`);
 });

@@ -1,0 +1,7 @@
+<aside id = "side-bar">
+  <ul>
+    <%otherProfilesArr.map((item,index)=>{ %>
+    <li key=<%=index%>><a href=<%=item.url%>><%=item.name%></a></li>
+    <% })%>
+  </ul>
+</aside>
