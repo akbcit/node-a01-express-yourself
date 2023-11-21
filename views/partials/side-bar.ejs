@@ -1,7 +1,17 @@
-<aside id = "side-bar">
-  <ul>
-    <%otherProfilesArr.map((item,index)=>{ %>
-    <li key=<%=index%>><a href=<%=item.url%>><%=item.name%></a></li>
-    <% })%>
-  </ul>
-</aside>
+<!-- Links to other profiles (not including the current user) -->
+<div id="side-bar">
+<% const otherProfiles = allProfiles.filter(otherProfile => otherProfile.id !== profile.id); %>
+<% if (otherProfiles.length > 0) { %>
+    <h3>Other Profiles:</h3>
+    <ul>
+        <% otherProfiles.forEach(otherProfile => { %>
+            <li>
+                <a href="./<%= otherProfile.id %>"><%= otherProfile.name %></a>
+            </li>
+        <% }); %>
+    </ul>
+<% } else { %>
+    <p>No other profiles found.</p>
+<% } %>
+</div>
+
