@@ -11,7 +11,7 @@ html {
 }
 
 /*Typography */
-p, a, li, h1, h2, h3, h4{
+p, a, li, h1, h2, h3, h4, label, input, button{
     font-family: 'Barlow', sans-serif;
 }
 
@@ -34,6 +34,15 @@ body{
     align-items: center;
     justify-content: center;
     margin:0 auto;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin:0 auto;
+    max-width:900px;
 }
 
 ul{
@@ -68,6 +77,7 @@ button{
     width:150px;
     border-radius:5px;
     border:1px solid #F29325;
+    color:#fff;
 }
 button:hover{
     background: #F29325;
@@ -79,7 +89,52 @@ button a{
 button a:hover{
     color:#fff;
 }
+form{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        height: 250px;
+}
+input{
+width:100%;
+    height:30px;
 
+}
+textarea{
+width:100%;
+}
 div img{
     max-width: 400px;
+}
+header{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+    background: #F4E2DE;
+    height:60px;
+}
+nav{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width:900px;
+
+}
+nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+}
+
+nav ul li{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
