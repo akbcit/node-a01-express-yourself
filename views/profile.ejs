@@ -3,7 +3,7 @@
     <h1>Developer Profile</h1>
     <% if (profile) { %>
     <div>
-      <img src="<%= profile.imagePath %>" alt="<%= profile.name %>" />
+      <img src="<%= profile.imagePath %>" alt="<%= profile.name %>" id = "profile-img"/>
       <h2><%= profile.name %></h2>
       <!-- <p>ID: <%= profile.id %></p> -->
       <p>Interests: <%= profile.interests.join(', ') %></p>
